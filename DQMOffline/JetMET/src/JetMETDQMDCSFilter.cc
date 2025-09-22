@@ -68,7 +68,7 @@ void JetMETDQMDCSFilter::initializeVars() {
                  {"hbhe", false},
                  {"hf", false},
                  {"ho", false},
-                 {"es", false},
+                 //{"es", false},
                  {"muon", false}};
 }
 
@@ -89,7 +89,7 @@ void JetMETDQMDCSFilter::checkDCSInfoPerPartition(const T& DCS) {
                        {"hbhe", {T::HBHEa, T::HBHEb, T::HBHEc}},
                        {"hf", {T::HF}},
                        {"ho", {T::HO}},
-                       {"es", {T::ESp, T::ESm}},
+                       //{"es", {T::ESp, T::ESm}},
                        {"muon", {T::RPC, T::DT0, T::DTp, T::DTm, T::CSCp, T::CSCm}}};
   }
 
@@ -148,7 +148,7 @@ bool JetMETDQMDCSFilter::filter(const edm::Event& evt, const edm::EventSetup& es
   passPIX = passPerDet_["pixel"];
   passSiStrip = passPerDet_["sistrip"];
   passECAL = passPerDet_["ecal"];
-  passES = passPerDet_["es"];
+  //passES = passPerDet_["es"];
   passHBHE = passPerDet_["hbhe"];
   passHF = passPerDet_["hf"];
   passHO = passPerDet_["ho"];
