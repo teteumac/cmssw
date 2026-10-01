@@ -1,0 +1,25 @@
+{
+  "base_sha": "08c21e8297763e2aa5ad08c44a507e607e91c84b",
+  "scope": "RelVal initial inventory scope; exact logical folder and monitor name",
+  "jets": [
+    "JetMET/JetValidation/ak4PFJets/chargedMuEnergy",
+    "JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction",
+    "JetMET/JetValidation/ak4CaloJets/n60",
+    "JetMET/JetValidation/ak4CaloJets/n90"
+  ],
+  "met": [
+    "JetMET/METValidation/caloMet/CaloSETInmHF",
+    "JetMET/METValidation/caloMet/CaloSETInpHF"
+  ],
+  "retained": [
+    "muonEnergy",
+    "muonEnergyFraction",
+    "muonMultiplicity",
+    "chargedHadronMultiplicity_B/E/F",
+    "chargedMultiplicity_B/E/F",
+    "electronMultiplicity_B/E/F",
+    "HadronFlavor",
+    "PartonFlavor"
+  ],
+  "other_modes": "HLT, other collections, MiniAOD and Offline DQM are preserved"
+}

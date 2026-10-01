@@ -1,0 +1,94 @@
+{
+  "target": "met",
+  "comparisons": {
+    "dqmio": {
+      "status": "PASS",
+      "reference_object_count": 6930,
+      "candidate_object_count": 6928,
+      "retained_equal_count": 6928,
+      "removed_keys": [
+        "1:0:JetMET/METValidation/caloMet/CaloSETInmHF",
+        "1:0:JetMET/METValidation/caloMet/CaloSETInpHF"
+      ],
+      "added_keys": [],
+      "changed_retained_keys": []
+    },
+    "harvested": {
+      "status": "PASS",
+      "reference_object_count": 9029,
+      "candidate_object_count": 9027,
+      "retained_equal_count": 9027,
+      "removed_keys": [
+        "1:0:JetMET/METValidation/caloMet/CaloSETInmHF",
+        "1:0:JetMET/METValidation/caloMet/CaloSETInpHF"
+      ],
+      "added_keys": [],
+      "changed_retained_keys": []
+    }
+  },
+  "removed_reference_monitors": {
+    "1:0:JetMET/METValidation/caloMet/CaloSETInmHF": {
+      "entries": 100.0,
+      "underflow": 0.0,
+      "overflow": 0.0,
+      "nonzero_bins": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        28
+      ]
+    },
+    "1:0:JetMET/METValidation/caloMet/CaloSETInpHF": {
+      "entries": 100.0,
+      "underflow": 0.0,
+      "overflow": 0.0,
+      "nonzero_bins": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        21
+      ]
+    }
+  },
+  "muon_duplicate_pairs": [],
+  "booking_probe": {
+    "purpose": "Exact folder and HLT booking only; one EmptySource event",
+    "status": "PASS",
+    "reference_object_count": 2347,
+    "candidate_object_count": 2345,
+    "retained_equal_count": 2345,
+    "removed_keys": [
+      "1:0:JetMET/METValidation/caloMet/CaloSETInmHF",
+      "1:0:JetMET/METValidation/caloMet/CaloSETInpHF"
+    ],
+    "added_keys": [],
+    "changed_retained_keys": []
+  }
+}

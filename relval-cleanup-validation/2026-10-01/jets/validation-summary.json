@@ -1,0 +1,522 @@
+{
+  "target": "jets",
+  "status": "PASS",
+  "created_utc": "2026-10-01T15:47:30.592698+00:00",
+  "release": "CMSSW_20_1_X_2026-09-30-2300",
+  "base_sha": "08c21e8297763e2aa5ad08c44a507e607e91c84b",
+  "architecture": "el9_amd64_gcc14",
+  "workflow": "18434.0",
+  "scenario": "2026 TTbar_14TeV_TuneCP5; no additional pileup",
+  "era": "Run3_2026",
+  "geometry": "DB:Extended",
+  "conditions_alias": "auto:phase1_2026_realistic",
+  "resolved_globaltag": "160X_mcRun3_2026_realistic_v6",
+  "events_requested": 100,
+  "reco_events_reference": 100,
+  "reco_events_candidate": 100,
+  "threads": 1,
+  "streams": 1,
+  "execution_backend": "CERN HTCondor EL9; reference and candidate sequentially in one allocation",
+  "pair_host": "b9g42p2007.cern.ch",
+  "shared_input": "/eos/home-m/matheus/jme-relval/CMSSW_20_1_X_2026-09-30-2300/jets/reference/18434.0_TTbar_14TeV+2026/step2.root",
+  "shared_input_sha256": "ae7c230008938a06431c5dc6dccd254a26216d18fe2429dcd28b6bcd7f5b494f",
+  "common_validation_customization": "Both replay cfgs append numberOfThreads=1 and numberOfStreams=1; no other changes",
+  "candidate_patch_sha256": "61e2e4e0fc08dce071b6d0e07547cf4f50fd4b6c793bb3fe6edec10ea672f11c",
+  "configs": {
+    "3": {
+      "name": "step3_RAW2DIGI_L1Reco_RECO_RECOSIM_PAT_NANO_VALIDATION_DQM.py",
+      "cfg_sha256": "dfb0f79b8925296c4a4d27478a567f3d1bd53c2a8555087f8742abdebe9ce51a",
+      "expanded_sha256": "c329f37367f1211dbb28e99b4844e2946c12050022653b5c75d73013f23192c7",
+      "byte_identical": true
+    },
+    "4": {
+      "name": "step4_HARVESTING.py",
+      "cfg_sha256": "3a851ac885d9432a207698d1bc201fa3fb70901aeb17f53fdcfd5990ad119ac7",
+      "expanded_sha256": "a4e8fbfba79e142c3c21fab3e164ff8a2dfb2108c10af21e4a06d18e7f68ea50",
+      "byte_identical": true
+    }
+  },
+  "framework_reports": {
+    "reference_reco": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/serial/reference/reco-job-report.xml",
+      "process": "RECO",
+      "inputs": [
+        {
+          "pfn": "file:step2.root",
+          "source_class": "PoolSource",
+          "events_read": 100
+        }
+      ],
+      "outputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "module_class": "DQMRootOutputModule",
+          "total_events": 0
+        },
+        {
+          "pfn": "file:step3_inMINIAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3_inNANOEDMAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        }
+      ],
+      "metrics": {
+        "CPUModels": "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz"
+      }
+    },
+    "reference_harvest": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/serial/reference/harvest-job-report.xml",
+      "process": "HARVESTING",
+      "inputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "source_class": "DQMRootSource",
+          "events_read": 0
+        }
+      ],
+      "outputs": [],
+      "metrics": {
+        "CPUModels": "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz"
+      }
+    },
+    "candidate_reco": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/serial/candidate/reco-job-report.xml",
+      "process": "RECO",
+      "inputs": [
+        {
+          "pfn": "file:step2.root",
+          "source_class": "PoolSource",
+          "events_read": 100
+        }
+      ],
+      "outputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "module_class": "DQMRootOutputModule",
+          "total_events": 0
+        },
+        {
+          "pfn": "file:step3_inMINIAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3_inNANOEDMAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        }
+      ],
+      "metrics": {
+        "CPUModels": "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz"
+      }
+    },
+    "candidate_harvest": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/serial/candidate/harvest-job-report.xml",
+      "process": "HARVESTING",
+      "inputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "source_class": "DQMRootSource",
+          "events_read": 0
+        }
+      ],
+      "outputs": [],
+      "metrics": {
+        "CPUModels": "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz"
+      }
+    },
+    "original_reference_step1": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/reference/18434.0_TTbar_14TeV+2026/JobReport1.xml",
+      "process": "SIM",
+      "inputs": [],
+      "outputs": [
+        {
+          "pfn": "file:step1.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        }
+      ],
+      "metrics": {
+        "CPUModels": "AMD EPYC 7302 16-Core Processor"
+      }
+    },
+    "original_reference_step2": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/reference/18434.0_TTbar_14TeV+2026/JobReport2.xml",
+      "process": "HLT",
+      "inputs": [
+        {
+          "pfn": "file:step1.root",
+          "source_class": "PoolSource",
+          "events_read": 100
+        }
+      ],
+      "outputs": [
+        {
+          "pfn": "file:step2.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        }
+      ],
+      "metrics": {
+        "CPUModels": "AMD EPYC 7302 16-Core Processor"
+      }
+    },
+    "original_reference_step3": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/reference/18434.0_TTbar_14TeV+2026/JobReport3.xml",
+      "process": "RECO",
+      "inputs": [
+        {
+          "pfn": "file:step2.root",
+          "source_class": "PoolSource",
+          "events_read": 100
+        }
+      ],
+      "outputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "module_class": "DQMRootOutputModule",
+          "total_events": 0
+        },
+        {
+          "pfn": "file:step3_inMINIAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3_inNANOEDMAODSIM.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        },
+        {
+          "pfn": "file:step3.root",
+          "module_class": "PoolOutputModule",
+          "total_events": 100
+        }
+      ],
+      "metrics": {
+        "CPUModels": "AMD EPYC 7302 16-Core Processor"
+      }
+    },
+    "original_reference_step4": {
+      "file": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/reference/18434.0_TTbar_14TeV+2026/JobReport4.xml",
+      "process": "HARVESTING",
+      "inputs": [
+        {
+          "pfn": "file:step3_inDQM.root",
+          "source_class": "DQMRootSource",
+          "events_read": 0
+        }
+      ],
+      "outputs": [],
+      "metrics": {
+        "CPUModels": "AMD EPYC 7302 16-Core Processor"
+      }
+    }
+  },
+  "checks": {
+    "build-reference": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/build-reference.log"
+    },
+    "diff-check": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/diff-check.log"
+    },
+    "build-candidate": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/build-candidate.log"
+    },
+    "unit-tests": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/unit-tests.log"
+    },
+    "checkdeps": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/checkdeps.log"
+    },
+    "code-checks": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/code-checks.log"
+    },
+    "code-format": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/code-format.log"
+    },
+    "final-diff-check": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/jets/CMSSW_20_1_X_2026-09-30-2300/relval-cleanup-validation/logs/final-diff-check.log"
+    },
+    "serial-reference-build": {
+      "exit_code": 0,
+      "log": "/afs/cern.ch/user/m/matheus/jme-relval/serial-baseline/jets/build.log"
+    }
+  },
+  "log_diagnostics": {
+    "reco": {
+      "reference_error_categories": {
+        "e:PFAnalyzer": 100
+      },
+      "candidate_error_categories": {
+        "e:PFAnalyzer": 100
+      },
+      "new_error_messages": []
+    },
+    "harvest": {
+      "reference_error_categories": {
+        "e:DQMCorrelationClient": 2,
+        "e:DQMGenericClient": 27,
+        "e:HLTConfigProvider": 4
+      },
+      "candidate_error_categories": {
+        "e:DQMCorrelationClient": 2,
+        "e:DQMGenericClient": 27,
+        "e:HLTConfigProvider": 4
+      },
+      "new_error_messages": []
+    }
+  },
+  "comparisons": {
+    "dqmio": {
+      "status": "PASS",
+      "reference_object_count": 6930,
+      "candidate_object_count": 6926,
+      "retained_equal_count": 6926,
+      "removed_keys": [
+        "1:0:JetMET/JetValidation/ak4CaloJets/n60",
+        "1:0:JetMET/JetValidation/ak4CaloJets/n90",
+        "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergy",
+        "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction"
+      ],
+      "added_keys": [],
+      "changed_retained_keys": []
+    },
+    "harvested": {
+      "status": "PASS",
+      "reference_object_count": 9029,
+      "candidate_object_count": 9025,
+      "retained_equal_count": 9025,
+      "removed_keys": [
+        "1:0:JetMET/JetValidation/ak4CaloJets/n60",
+        "1:0:JetMET/JetValidation/ak4CaloJets/n90",
+        "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergy",
+        "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction"
+      ],
+      "added_keys": [],
+      "changed_retained_keys": []
+    }
+  },
+  "removed_reference_monitors": {
+    "1:0:JetMET/JetValidation/ak4CaloJets/n60": {
+      "entries": 272.0,
+      "underflow": 0.0,
+      "overflow": 0.0,
+      "nonzero_bins": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ]
+    },
+    "1:0:JetMET/JetValidation/ak4CaloJets/n90": {
+      "entries": 272.0,
+      "underflow": 0.0,
+      "overflow": 1.0,
+      "nonzero_bins": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        31
+      ]
+    },
+    "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergy": {
+      "entries": 311.0,
+      "underflow": 0.0,
+      "overflow": 0.0,
+      "nonzero_bins": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        17,
+        27
+      ]
+    },
+    "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction": {
+      "entries": 311.0,
+      "underflow": 0.0,
+      "overflow": 4.0,
+      "nonzero_bins": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12,
+        13,
+        18,
+        21,
+        32,
+        49,
+        50,
+        51
+      ]
+    }
+  },
+  "muon_duplicate_pairs": [
+    {
+      "differences": {},
+      "entries": 311.0,
+      "equal_numerical_state": true,
+      "positive_energy_bin_entries": 22.0,
+      "removed": "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergy",
+      "survivor": "1:0:JetMET/JetValidation/ak4PFJets/muonEnergy"
+    },
+    {
+      "differences": {},
+      "entries": 311.0,
+      "equal_numerical_state": true,
+      "positive_energy_bin_entries": 27.0,
+      "removed": "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction",
+      "survivor": "1:0:JetMET/JetValidation/ak4PFJets/muonEnergyFraction"
+    }
+  ],
+  "booking_probe": {
+    "purpose": "Exact folder and HLT booking only; one EmptySource event",
+    "status": "PASS",
+    "reference_object_count": 2347,
+    "candidate_object_count": 2343,
+    "retained_equal_count": 2343,
+    "removed_keys": [
+      "1:0:JetMET/JetValidation/ak4CaloJets/n60",
+      "1:0:JetMET/JetValidation/ak4CaloJets/n90",
+      "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergy",
+      "1:0:JetMET/JetValidation/ak4PFJets/chargedMuEnergyFraction"
+    ],
+    "added_keys": [],
+    "changed_retained_keys": []
+  },
+  "original_reference": {
+    "workflow_dir": "18434.0_TTbar_14TeV+2026",
+    "executed_step_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "runner_reported_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "executed_steps": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "note": "The runner reports a placeholder success for skipped step 5 (ALCA).",
+    "events_requested": 100,
+    "step3_cfg": "step3_RAW2DIGI_L1Reco_RECO_RECOSIM_PAT_NANO_VALIDATION_DQM.py",
+    "step4_cfg": "step4_HARVESTING.py"
+  },
+  "previous_four_thread_comparisons": [
+    {
+      "directory": "candidate-attempt01",
+      "threads": 4,
+      "streams": 1,
+      "status": "FAIL",
+      "reference_host": "b9p29p8354.cern.ch",
+      "candidate_host": "b9p13p8814.cern.ch",
+      "removed_count": 4,
+      "added_count": 0,
+      "changed_retained_count": 3098,
+      "reco_exit_code": 0,
+      "harvest_exit_code": 0
+    },
+    {
+      "directory": "candidate",
+      "threads": 4,
+      "streams": 1,
+      "status": "FAIL",
+      "reference_host": "b9p29p8354.cern.ch",
+      "candidate_host": "b9p29p8354.cern.ch",
+      "removed_count": 4,
+      "added_count": 0,
+      "changed_retained_count": 422,
+      "reco_exit_code": 0,
+      "harvest_exit_code": 0
+    }
+  ],
+  "unmodified_four_thread_control": {
+    "purpose": "Unmodified four-thread RECO replay of the Jets reference input on the reference host",
+    "cmsrun_exit_code": 0,
+    "comparison_status": "FAIL",
+    "threads": 4,
+    "streams": 1,
+    "events_read": 100,
+    "host": "b9p29p8354.cern.ch",
+    "cpu_models": "AMD EPYC 7302 16-Core Processor",
+    "source_patch_empty": true,
+    "expanded_cfg_byte_identical": true,
+    "shared_input_sha256": "ae7c230008938a06431c5dc6dccd254a26216d18fe2429dcd28b6bcd7f5b494f",
+    "removed_count": 0,
+    "added_count": 0,
+    "changed_retained_count": 379,
+    "retained_entry_differences": 0
+  },
+  "reproduction_observation": "Four-thread full RECO replays changed retained CHS/associated MET MEs; the controlled serial pair is the strict acceptance comparison. No reconstruction or selection code was changed.",
+  "broader_limited_matrix_executed": false,
+  "scope_limit": "100-event technical validation; broader physics validation and central CI remain separate"
+}
