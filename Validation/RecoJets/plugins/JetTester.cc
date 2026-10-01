@@ -934,8 +934,10 @@ void JetTester::bookHistograms(DQMStore::IBooker& ibooker, edm::Run const& iRun,
     emEnergyInEE = ibooker.book1D("emEnergyInEE", "emEnergyInEE", 50, 0, 500);
     emEnergyInHF = ibooker.book1D("emEnergyInHF", "emEnergyInHF", 50, 0, 500);
     towersArea = ibooker.book1D("towersArea", "towersArea", 50, 0, 1);
-    n90 = ibooker.book1D("n90", "n90", 30, 0, 30);
-    n60 = ibooker.book1D("n60", "n60", 30, 0, 30);
+    if (isHLT_ || mInputCollection.label() != "ak4CaloJets") {
+      n90 = ibooker.book1D("n90", "n90", 30, 0, 30);
+      n60 = ibooker.book1D("n60", "n60", 30, 0, 30);
+    }
   }
 
   if (isPFJet || isMiniAODJet) {
@@ -967,8 +969,10 @@ void JetTester::bookHistograms(DQMStore::IBooker& ibooker, edm::Run const& iRun,
     electronMultiplicity = ibooker.book1D("electronMultiplicity", "electronMultiplicity", 15, 0, 15);
     HFHadronMultiplicity = ibooker.book1D("HFHadronMultiplicity", "HFHadronMultiplicity", 50, 0, 50);
     HFEMMultiplicity = ibooker.book1D("HFEMMultiplicity", "HFEMMultiplicity", 50, 0, 50);
-    chargedMuEnergy = ibooker.book1D("chargedMuEnergy", "chargedMuEnergy", 50, 0, 500);
-    chargedMuEnergyFraction = ibooker.book1D("chargedMuEnergyFraction", "chargedMuEnergyFraction", 50, 0, 1);
+    if (isHLT_ || mInputCollection.label() != "ak4PFJets") {
+      chargedMuEnergy = ibooker.book1D("chargedMuEnergy", "chargedMuEnergy", 50, 0, 500);
+      chargedMuEnergyFraction = ibooker.book1D("chargedMuEnergyFraction", "chargedMuEnergyFraction", 50, 0, 1);
+    }
     neutralMultiplicity = ibooker.book1D("neutralMultiplicity", "neutralMultiplicity", 50, 0, 50);
     HOEnergy = ibooker.book1D("HOEnergy", "HOEnergy", 50, 0, 500);
     HOEnergyFraction = ibooker.book1D("HOEnergyFraction", "HOEnergyFraction", 50, 0, 1);
@@ -1207,8 +1211,12 @@ void JetTester::analyze(const edm::Event& mEvent, const edm::EventSetup& mSetup)
       emEnergyInEE->Fill((*caloJets)[ijet].emEnergyInEE());
       emEnergyInHF->Fill((*caloJets)[ijet].emEnergyInHF());
       towersArea->Fill((*caloJets)[ijet].towersArea());
-      n90->Fill((*caloJets)[ijet].n90());
-      n60->Fill((*caloJets)[ijet].n60());
+      if (n90) {
+        n90->Fill((*caloJets)[ijet].n90());
+      }
+      if (n60) {
+        n60->Fill((*caloJets)[ijet].n60());
+      }
     }
 
     // ---- PF Jet specific information ----
@@ -1239,8 +1247,12 @@ void JetTester::analyze(const edm::Event& mEvent, const edm::EventSetup& mSetup)
       electronMultiplicity->Fill((*pfJets)[ijet].electronMultiplicity());
       HFHadronMultiplicity->Fill((*pfJets)[ijet].HFHadronMultiplicity());
       HFEMMultiplicity->Fill((*pfJets)[ijet].HFEMMultiplicity());
-      chargedMuEnergy->Fill((*pfJets)[ijet].chargedMuEnergy());
-      chargedMuEnergyFraction->Fill((*pfJets)[ijet].chargedMuEnergyFraction());
+      if (chargedMuEnergy) {
+        chargedMuEnergy->Fill((*pfJets)[ijet].chargedMuEnergy());
+      }
+      if (chargedMuEnergyFraction) {
+        chargedMuEnergyFraction->Fill((*pfJets)[ijet].chargedMuEnergyFraction());
+      }
       neutralMultiplicity->Fill((*pfJets)[ijet].neutralMultiplicity());
       HOEnergy->Fill((*pfJets)[ijet].hoEnergy());
       HOEnergyFraction->Fill((*pfJets)[ijet].hoEnergyFraction());
@@ -1294,8 +1306,12 @@ void JetTester::analyze(const edm::Event& mEvent, const edm::EventSetup& mSetup)
       electronMultiplicity->Fill((*patJets)[ijet].electronMultiplicity());
       HFHadronMultiplicity->Fill((*patJets)[ijet].HFHadronMultiplicity());
       HFEMMultiplicity->Fill((*patJets)[ijet].HFEMMultiplicity());
-      chargedMuEnergy->Fill((*patJets)[ijet].chargedMuEnergy());
-      chargedMuEnergyFraction->Fill((*patJets)[ijet].chargedMuEnergyFraction());
+      if (chargedMuEnergy) {
+        chargedMuEnergy->Fill((*patJets)[ijet].chargedMuEnergy());
+      }
+      if (chargedMuEnergyFraction) {
+        chargedMuEnergyFraction->Fill((*patJets)[ijet].chargedMuEnergyFraction());
+      }
       neutralMultiplicity->Fill((*patJets)[ijet].neutralMultiplicity());
       HOEnergy->Fill((*patJets)[ijet].hoEnergy());
       HOEnergyFraction->Fill((*patJets)[ijet].hoEnergyFraction());
